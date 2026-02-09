@@ -1,0 +1,43 @@
+# FastAPI and web framework
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic[email]==2.10.5
+pydantic-settings==2.7.1
+python-multipart==0.0.20
+email-validator==2.2.0
+
+# Database
+sqlalchemy==2.0.25
+alembic==1.13.1
+psycopg2-binary==2.9.9  # PostgreSQL driver
+
+# Supabase (for cloud storage)
+supabase==2.3.4
+
+# Redis (Phase 2+)
+# redis==5.0.1
+
+# Authentication
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+python-dotenv==1.0.0
+
+# HTTP client
+httpx==0.28.1
+
+# AI/ML (Phase 4+ - Groq for LLM)
+groq==1.0.0
+# openai==1.10.0
+# anthropic==0.8.1
+# langchain==0.1.4
+# langchain-openai==0.0.5
+
+# OAuth and integrations (Phase 5 - commented out for now)
+# google-auth==2.27.0
+# google-auth-oauthlib==1.2.0
+# google-api-python-client==2.116.0
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
