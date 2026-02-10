@@ -30,12 +30,47 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>
 }
 
+function PublicRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, isLoading } = useAuth()
+
+  if (isLoading) {
+    return <Loading />
+  }
+
+  if (isAuthenticated) {
+    return <Navigate to="/feed" replace />
+  }
+
+  return <>{children}</>
+}
+
 function AppRoutes() {
+  const { isAuthenticated, isLoading } = useAuth()
+
+  if (isLoading) {
+    return <Loading />
+  }
+
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
+      <Route path="/" element={isAuthenticated ? <Navigate to="/feed" replace /> : <Navigate to="/login" replace />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route
+        path="/login"
+        element={
+          <PublicRoute>
+            <Login />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/signup"
+        element={
+          <PublicRoute>
+            <Signup />
+          </PublicRoute>
+        }
+      />
       <Route
         path="/onboarding"
         element={
