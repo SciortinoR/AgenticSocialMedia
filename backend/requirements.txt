@@ -12,7 +12,7 @@ alembic==1.13.1
 psycopg2-binary==2.9.9  # PostgreSQL driver
 
 # Supabase (for cloud storage)
-supabase==2.3.4
+supabase>=2.10.0
 
 # Redis (Phase 2+)
 # redis==5.0.1
@@ -23,8 +23,8 @@ passlib[bcrypt]==1.7.4
 bcrypt==4.0.1
 python-dotenv==1.0.0
 
-# HTTP client (version compatible with supabase 2.3.4)
-httpx==0.25.2
+# HTTP client (supabase will install compatible version)
+# httpx version managed by supabase dependency
 
 # AI/ML (Phase 4+ - Groq for LLM)
 groq==1.0.0
