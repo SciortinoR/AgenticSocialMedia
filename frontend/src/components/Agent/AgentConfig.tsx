@@ -50,8 +50,8 @@ export default function AgentConfig({ agent, onUpdate }: AgentConfigProps) {
 
       const topicsArray = formData.topicsOfInterest
         .split(',')
-        .map((t) => t.trim())
-        .filter((t) => t.length > 0)
+        .map((t: string) => t.trim())
+        .filter((t: string) => t.length > 0)
 
       // Send data in snake_case format that backend expects
       const updateData = {
