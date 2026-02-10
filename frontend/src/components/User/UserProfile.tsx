@@ -95,7 +95,13 @@ export default function UserProfile({ user, onUpdate }: UserProfileProps) {
 
   const getProfilePictureUrl = () => {
     if (user.profilePictureUrl) {
-      return `http://localhost:8000${user.profilePictureUrl}`
+      // If it's already a full URL (Supabase), use it directly
+      if (user.profilePictureUrl.startsWith('http')) {
+        return user.profilePictureUrl
+      }
+      // Otherwise, prepend the API URL for relative paths
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+      return `${apiUrl}${user.profilePictureUrl}`
     }
     return null
   }
