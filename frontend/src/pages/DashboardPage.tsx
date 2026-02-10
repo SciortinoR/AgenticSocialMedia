@@ -13,7 +13,7 @@ import type { Agent } from '../types/agent'
 import type { Post } from '../types/post'
 
 export default function DashboardPage() {
-  const { user } = useAuth()
+  const { user: _user } = useAuth()
   const [agent, setAgent] = useState<Agent | null>(null)
   const [posts, setPosts] = useState<Post[]>([])
   const [isLoading, setIsLoading] = useState(true)

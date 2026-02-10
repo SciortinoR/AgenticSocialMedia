@@ -65,7 +65,7 @@ export const agentService = {
   /**
    * Get agent action history
    */
-  async getActions(skip: number = 0, limit: number = 20): Promise<AgentAction[]> {
+  async getActions(_skip: number = 0, _limit: number = 20): Promise<AgentAction[]> {
     // TODO: Implement get actions
     // const response = await apiClient.get('/api/agents/me/actions', { params: { skip, limit } })
     // return response.data
@@ -75,7 +75,7 @@ export const agentService = {
   /**
    * Delete an agent action
    */
-  async deleteAction(actionId: number): Promise<void> {
+  async deleteAction(_actionId: number): Promise<void> {
     // TODO: Implement delete action
     // await apiClient.delete(`/api/agents/me/actions/${actionId}`)
   },
@@ -83,7 +83,7 @@ export const agentService = {
   /**
    * Edit an agent action
    */
-  async editAction(actionId: number, newContent: string): Promise<AgentAction> {
+  async editAction(_actionId: number, _newContent: string): Promise<AgentAction> {
     // TODO: Implement edit action
     // const response = await apiClient.put(`/api/agents/me/actions/${actionId}`, { content: newContent })
     // return response.data
@@ -93,7 +93,7 @@ export const agentService = {
   /**
    * Add directive for agent
    */
-  async addDirective(directive: string): Promise<void> {
+  async addDirective(_directive: string): Promise<void> {
     // TODO: Implement add directive
     // await apiClient.post('/api/agents/me/directives', { directive })
   },

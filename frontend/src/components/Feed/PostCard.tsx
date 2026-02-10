@@ -26,7 +26,7 @@ export default function PostCard({ post, onEdit, onDelete, onUpdate }: PostCardP
   const [comments, setComments] = useState<Interaction[]>([])
   const [commentCount, setCommentCount] = useState(post.commentCount || 0)
   const [isSubmittingComment, setIsSubmittingComment] = useState(false)
-  const [isLoadingLikeStatus, setIsLoadingLikeStatus] = useState(true)
+  const [_isLoadingLikeStatus, setIsLoadingLikeStatus] = useState(true)
   const [commentLikeStates, setCommentLikeStates] = useState<Record<number, boolean>>({})
   const [editingCommentId, setEditingCommentId] = useState<number | null>(null)
   const [editCommentText, setEditCommentText] = useState('')

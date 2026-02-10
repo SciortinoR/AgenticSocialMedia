@@ -11,7 +11,7 @@ interface AgentActivityProps {
   onDelete?: (actionId: number) => void
 }
 
-export default function AgentActivity({ actions }: AgentActivityProps) {
+export default function AgentActivity({ actions: _actions }: AgentActivityProps) {
   /**
    * List of agent actions with edit/delete options
    */
