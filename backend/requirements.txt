@@ -23,8 +23,8 @@ passlib[bcrypt]==1.7.4
 bcrypt==4.0.1
 python-dotenv==1.0.0
 
-# HTTP client
-httpx==0.28.1
+# HTTP client (version compatible with supabase 2.3.4)
+httpx==0.25.2
 
 # AI/ML (Phase 4+ - Groq for LLM)
 groq==1.0.0
