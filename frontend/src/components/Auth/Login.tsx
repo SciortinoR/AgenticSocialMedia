@@ -41,10 +41,21 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        {/* Brand Header */}
+        <div className="text-center">
+          <h1 className="text-5xl font-bold text-blue-600 mb-2">
+            Agent Social
+          </h1>
+          <p className="text-lg text-gray-600 italic">
+            Your digital presence, powered by AI agents
+          </p>
+        </div>
+
+        {/* Sign In Section */}
+        <div className="mt-8">
+          <h2 className="text-center text-3xl font-extrabold text-gray-900">
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
