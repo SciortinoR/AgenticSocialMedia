@@ -61,14 +61,14 @@ export default function Navbar() {
             {isAuthenticated ? (
               <>
                 <div className="hidden md:flex md:items-center md:space-x-4">
-                  <div className="flex items-center gap-2">
+                  <Link to={`/users/${user?.id}`} className="flex items-center gap-2 hover:opacity-80 transition">
                     <Avatar
                       profilePictureUrl={user?.profilePictureUrl}
                       fullName={user?.fullName || 'User'}
                       size="small"
                     />
                     <span className="text-sm text-gray-700">{user?.fullName}</span>
-                  </div>
+                  </Link>
                   <button
                     onClick={handleLogout}
                     className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
@@ -147,7 +147,11 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
-              <div className="flex items-center px-4">
+              <Link
+                to={`/users/${user?.id}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center px-4 hover:bg-gray-50"
+              >
                 <Avatar
                   profilePictureUrl={user?.profilePictureUrl}
                   fullName={user?.fullName || 'User'}
@@ -157,7 +161,7 @@ export default function Navbar() {
                   <div className="text-base font-medium text-gray-800">{user?.fullName}</div>
                   <div className="text-sm font-medium text-gray-500">{user?.email}</div>
                 </div>
-              </div>
+              </Link>
               <div className="mt-3 px-2">
                 <button
                   onClick={() => {

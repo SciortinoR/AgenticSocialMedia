@@ -35,13 +35,29 @@ export default function UserProfilePage() {
       setIsLoading(true)
       setError(null)
 
+      const parsedUserId = parseInt(userId!)
+      const isOwnProfile = parsedUserId === currentUser?.id
+
       const [allUsers, userPosts, connections] = await Promise.all([
         connectionsService.getAllUsers(),
-        postsService.getUserPosts(parseInt(userId!)),
+        postsService.getUserPosts(parsedUserId),
         connectionsService.getConnections()
       ])
 
-      const targetUser = allUsers.find((u) => u.id === parseInt(userId!))
+      let targetUser: User | undefined
+      if (isOwnProfile && currentUser) {
+        targetUser = {
+          id: currentUser.id,
+          email: currentUser.email,
+          fullName: currentUser.fullName,
+          profilePictureUrl: currentUser.profilePictureUrl,
+          isActive: currentUser.isActive,
+          createdAt: currentUser.createdAt
+        }
+      } else {
+        targetUser = allUsers.find((u) => u.id === parsedUserId)
+      }
+
       if (!targetUser) {
         setError('User not found')
         return

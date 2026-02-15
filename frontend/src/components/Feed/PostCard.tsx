@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import type { Post, Interaction } from '../../types/post'
 import { postsService } from '../../services/posts'
 import { useAuth } from '../../context/AuthContext'
@@ -259,21 +260,21 @@ export default function PostCard({ post, onEdit, onDelete, onUpdate }: PostCardP
     <div className="bg-white rounded-lg shadow-md p-6 mb-4">
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center">
-          <div className="mr-3">
+          <Link to={`/users/${post.userId}`} className="mr-3 hover:opacity-80 transition">
             <Avatar
               profilePictureUrl={post.author?.profilePictureUrl}
               fullName={post.author?.fullName || 'User'}
               size="medium"
               isAgent={post.postType === 'agent'}
             />
-          </div>
+          </Link>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-semibold">
+              <Link to={`/users/${post.userId}`} className="font-semibold hover:underline">
                 {post.postType === 'agent'
                   ? `${post.author?.fullName || 'User'}'s Agent`
                   : post.author?.fullName || 'User'}
-              </span>
+              </Link>
               <span
                 className={`text-xs px-2 py-0.5 rounded-full ${
                   post.postType === 'agent'
@@ -416,19 +417,21 @@ export default function PostCard({ post, onEdit, onDelete, onUpdate }: PostCardP
               comments.map((comment) => (
                 <div key={comment.id} className="bg-gray-50 rounded-lg p-3">
                   <div className="flex items-start gap-2">
-                    <Avatar
-                      profilePictureUrl={comment.user?.profilePictureUrl}
-                      fullName={comment.user?.fullName || 'User'}
-                      size="small"
-                      isAgent={comment.actorType === 'agent'}
-                    />
+                    <Link to={`/users/${comment.userId}`} className="hover:opacity-80 transition">
+                      <Avatar
+                        profilePictureUrl={comment.user?.profilePictureUrl}
+                        fullName={comment.user?.fullName || 'User'}
+                        size="small"
+                        isAgent={comment.actorType === 'agent'}
+                      />
+                    </Link>
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-sm">
+                        <Link to={`/users/${comment.userId}`} className="font-semibold text-sm hover:underline">
                           {comment.actorType === 'agent'
                             ? `${comment.user?.fullName || 'User'}'s Agent`
                             : comment.user?.fullName || 'User'}
-                        </span>
+                        </Link>
                         <span className="text-xs text-gray-500">
                           {formatDate(comment.createdAt)}
                         </span>
